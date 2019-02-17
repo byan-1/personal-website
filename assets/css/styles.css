@@ -17,19 +17,23 @@ a:hover {
 }
 
 .container {
-    display: grid;
-    grid-template-areas:
-        "header" "header"
-        "main-section" "side-section"
-        "footer" "footer";
-    grid-template-columns: 66% 34%;
-    grid-template-rows: auto 1fr auto;
-    grid-gap: 10px;
+  display: grid;
+     grid-template-areas:
+    "header header header header"
+    ". main-section side-section ."
+    "footer footer footer footer"; 
+  grid-template-columns: 1fr minmax(500px, 4fr) minmax(250px, 2fr) 1fr;
+  grid-gap: 30px;
+  min-height: 100vh;
 }
 
 ul {
   margin: 0;
-  padding: 0px 20px;
+  padding: 0;
+}
+
+.side-section ul {
+    padding: 0 20px;
 }
 
 h1,
@@ -56,8 +60,19 @@ h3 {
 
 .header {
   background-color: #f5f5f5;
-  padding: 50px 15px;
+  padding: 50px 0;
   grid-area: header;
+  display: grid;
+     grid-template-areas:
+    ". header-wrapper ."; 
+  grid-template-columns: 1fr minmax(750px, 6fr) 1fr;
+  grid-gap: 30px;  
+}
+
+.header .header-wrapper {
+  grid-area: header-wrapper;
+  padding: 0;
+  margin: 0;
 }
 
 .header .container {
@@ -93,7 +108,6 @@ h3 {
   background-color: #b0b7bf;
   text-align: center;
   color: #ffffff;
-  background-clip: padding-box;
 }
 
 .header .social a:hover {
@@ -106,20 +120,21 @@ h3 {
 }
 
 .main-section {
-    grid-area: main-section;
+  grid-area: main-section;
 }
 
 .side-section {
-    grid-area: side-section;
+  grid-area: side-section;
 }
 
 .content {
   padding: 15px;
   background-color: #f5f5f5;
+  margin-bottom: 30px;
 }
 
 .footer {
-grid-area: footer;
+  grid-area: footer;
   text-align: center;
   background-color: #c8daff;
   padding: 15px;
@@ -129,6 +144,26 @@ grid-area: footer;
   margin: 0;
 }
 
-ul li .fa {
+.side-section ul li .fa {
   margin-right: 5px;
+}
+
+@media all and (max-width: 800px) {
+  .container { 
+    grid-template-areas: 
+      "header header header"
+      ". main-section ."
+      ". side-section ."
+      "footer footer footer";
+    grid-template-columns: 0px auto 0px;
+  }
+    .header { 
+      grid-template-areas: 
+        ". header-wrapper .";
+      grid-template-columns: 0px auto 0px;
+ }
+
+ .side-section {
+   margin: -30px 0;
+ }
 }
