@@ -11,6 +11,7 @@ a {
   color: #3aaa64;
   text-decoration: None;
 }
+
 a:hover {
   text-decoration: underline;
   color: #2d844e;
@@ -18,10 +19,10 @@ a:hover {
 
 .container {
   display: grid;
-     grid-template-areas:
+  grid-template-areas:
     "header header header header"
     ". main-section side-section ."
-    "footer footer footer footer"; 
+    "footer footer footer footer";
   grid-template-columns: 1fr minmax(500px, 4fr) minmax(250px, 2fr) 1fr;
   grid-gap: 30px;
   min-height: 100vh;
@@ -33,7 +34,7 @@ ul {
 }
 
 .side-section ul {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 h1,
@@ -63,10 +64,10 @@ h3 {
   padding: 50px 0;
   grid-area: header;
   display: grid;
-     grid-template-areas:
-    ". header-wrapper ."; 
+  grid-template-areas:
+    ". header-wrapper .";
   grid-template-columns: 1fr minmax(750px, 6fr) 1fr;
-  grid-gap: 30px;  
+  grid-gap: 30px;
 }
 
 .header .header-wrapper {
@@ -149,21 +150,22 @@ h3 {
 }
 
 @media all and (max-width: 800px) {
-  .container { 
-    grid-template-areas: 
+  .container {
+    grid-template-areas:
       "header header header"
       ". main-section ."
       ". side-section ."
       "footer footer footer";
     grid-template-columns: 0px auto 0px;
   }
-    .header { 
-      grid-template-areas: 
-        ". header-wrapper .";
-      grid-template-columns: 0px auto 0px;
- }
 
- .side-section {
-   margin: -30px 0;
- }
+  .header {
+    grid-template-areas:
+      ". header-wrapper .";
+    grid-template-columns: 0px auto 0px;
+  }
+
+  .side-section {
+    margin: -30px 0;
+  }
 }
